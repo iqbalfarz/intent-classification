@@ -12,7 +12,6 @@ Fine-tuning Wav2Vec2 Huggingface model for audio intent classification
 * [Real-world/business Objectives and Constraints](#real-world-business-objectives-and-constraints)
 * [Mapping to Machine Learning Problem](#mapping-to-machine-learning-problem)
 * [Model Training](#model-training)
-* [Technical Aspect](#technical-aspect)
 * [Installation](#installation)
 * [Run](#run)
 * [Directory Tree](#directory-tree)
@@ -33,44 +32,48 @@ Intent Classification is used in Conversational AI where we are suppose to under
 Classify the intent of the Speech audios.
 
 ## Source and Useful links
+
 Data Source: [Click Here!](https://huggingface.co/datasets/MuhammadIqbalBazmi/intent-dataset)
+
 Wav2Vec2 : [Click here!](https://ai.facebook.com/blog/wav2vec-20-learning-the-structure-of-speech-from-raw-audio/)
+
 Wav2Vec2 on the Edge: Performance Evaluation: [Download here!](https://arxiv.org/pdf/2202.05993.pdf)
+
 Youtube: [Audio Classification](https://www.youtube.com/watch?v=iuvDLKql3yk&ab_channel=JulienSimon)
 
 
 ## Real-World Business Objectives and Constraints
-* Low-latency required because we need to understand it and response in real-time with thousands of request in parallel.
+- Low-latency required because we need to understand it and response in real-time with thousands of request in parallel.
 
 ## Mapping to Machine Learning Problem 
-1. ### Data
-  * Dataset: [Download from here!](https://huggingface.co/datasets/MuhammadIqbalBazmi/intent-dataset)
-  * Total datapoints: 160
-  * Data-split: TRAIN-TEST \[70:30\]
-  * Number of classes: 9
-  * Name of classes: 
-     \[
-     "battery", 
-     "Running_operating_cost", 
-     "Locate_Dealer", 
-     "casual_talk_greeting",
-     "Top_speed", 
-     "casual_talk_goodbye",
-     "About_iQube", 
-     "bike_modes",
-     "book_now"
-     ]
+1.  ### Data
+    - Dataset: [Download from here!](https://huggingface.co/datasets/MuhammadIqbalBazmi/intent-dataset)
+    - Total datapoints: 160
+    - Data-split: TRAIN-TEST \[70:30\]
+    - Number of classes: 9
+    - Name of classes: 
+         \[
+         "battery", 
+         "Running_operating_cost", 
+         "Locate_Dealer", 
+         "casual_talk_greeting",
+         "Top_speed", 
+         "casual_talk_goodbye",
+         "About_iQube", 
+         "bike_modes",
+         "book_now"
+         ]
      
-2. ### Types of Machine Learning Problem
-  * This problem is proposed as Multi-class Audio Classification.
-  * As we are having very less amount of data. So, we are fine-tuning Speech Language Model Wav2Vec2.
+2.  ### Types of Machine Learning Problem
+    * This problem is proposed as Multi-class Audio Classification.
+    * As we are having very less amount of data. So, we are fine-tuning Speech Language Model Wav2Vec2.
 
-3. ### Performance Metrics
-  * Accuracy: We fine-tuned the model based on Accuracy
-  * Precision
-  * Recall
-  * f1
-  * NOTE: We Calculate Precision, Recall and F1 for the best performing model. We used `micro`, `macro`, `weighted` as an `average` option because Multi-class classification.
+3.  ### Performance Metrics
+    * Accuracy: We fine-tuned the model based on Accuracy
+    * Precision
+    * Recall
+    * f1
+    * NOTE: We Calculate Precision, Recall and F1 for the best performing model. We used `micro`, `macro`, `weighted` as an `average` option because Multi-class classification.
 
 ## Model Training
   * fine-tuned many different models on the given dataset with `accuracy` as a metric.
@@ -97,6 +100,7 @@ You will have to manually run each jupyter notebooks and see the result.
 **For Inference, use huggingface hub model : [Click Here](https://huggingface.co/MuhammadIqbalBazmi/wav2vec2-base-intent-classification-ori)**
 
 ## Directory Tree
+```
 ├───dataset
 │   ├───audio
 │   └───csv
@@ -106,6 +110,7 @@ You will have to manually run each jupyter notebooks and see the result.
 │   └───3.inferencing_and_Performance_analysis_of_fine-tuned_models.ipynb
 ├───inference.py
 └───README.md
+```
 
 ## Future Work
 1. Get mode data and fine-tune on top of that to get more better result and also balanced the audio files per class.
